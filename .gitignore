@@ -1,0 +1,9 @@
+## === Editor Files ===
+.dir-locals.el
+
+
+## === Build Artifacts ===
+
+*.out
+*.a
+/build
