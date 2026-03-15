@@ -11,13 +11,9 @@ struct Segment {
   struct Segment *next;
 };
 
-struct Snake {
-  int length;
-  struct Segment *head;
-};
-
-void move_snake(struct Snake *snake, int new_x, int new_y, bool ate);
-
 void handle_inputs(char input, enum Direction *old_direction);
 
+bool move(struct Segment *head, enum Direction direction, bool ate);
+
+void death(struct Segment *head);
 #endif

@@ -7,10 +7,10 @@ void goto_xy(int x, int y);
 
 void draw_walls();
 
-void draw_snake(struct Snake *snake);
+void draw_snake(struct Segment *head);
 
-void erase_tail(struct Snake *snake, bool ate);
+void erase_tail(struct Segment *head, bool ate);
 
-void draw_movement(struct Snake *snake, bool ate);
+void draw_movement(struct Segment *head, bool ate);
 
 #endif
