@@ -12,8 +12,8 @@ struct Segment {
 };
 
 struct Snake {
-  struct Segment *head;
   int length;
+  struct Segment *head;
 };
 
 void move_snake(struct Snake *snake, int new_x, int new_y, bool ate);
