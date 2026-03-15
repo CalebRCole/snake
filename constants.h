@@ -8,7 +8,7 @@
 #define START 1
 #define STOP 0
 
-#define DEAD 0
-#define ALIVE 1
+#define DEAD 1
+#define ALIVE 0
 
 #endif
