@@ -4,7 +4,7 @@ This is a simple game of Snake written in C. Intended as a learning project.
 
 ** Install
 
-This game requires GCC as the C compiler and requires POSIX headings, and thus is essentially required to be run on a Unix system. To compile, simply run "make" in the repository. "Make run" is a shortcut to compile and run the file, which is generated in the /build directory. "Make clean" removes any generated builds and returns to just the source files.
+This game requires GCC as the C compiler and requires POSIX headings, as well as a terminal to run commands and play the game with, and thus is essentially required to be run on a Unix system. To compile, simply run "make" in the repository in the command line. Inputting "make run" is a shortcut to compile and run the file, which is generated in the /build directory. Using "make clean" removes any generated builds and returns to just the source files.
 
 ** Directions
 
