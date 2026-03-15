@@ -98,6 +98,8 @@ bool move(struct Segment *head, enum Direction direction, struct Food *food) {
   }
 
   if (!(new_head->x == food->x && new_head->y == food->y)) {
+    goto_xy(penult_seg->next->x, penult_seg->next->y);
+    printf(" ");
     free(penult_seg->next);
     penult_seg->next = NULL;
   } else {

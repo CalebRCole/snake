@@ -25,19 +25,6 @@ void draw_walls() {
   }
 }
 
-void erase_tail(struct Segment *head, bool ate) {
-  if (!ate) {
-    struct Segment *node = head;
-
-    while (node->next != NULL) {
-      node = node->next;
-    }
-
-    goto_xy(node->x, node->y);
-    printf(" ");
-  }
-}
-
 void draw_snake(struct Segment *head) {
   // Prints head.
   goto_xy(head->x, head->y);
@@ -46,10 +33,4 @@ void draw_snake(struct Segment *head) {
   // Changes old head to body segment.
   goto_xy(head->next->x, head->next->y);
   printf("o");
-}
-
-// Combined functions for ease of use.
-void draw_movement(struct Segment *head, bool ate) {
-  draw_snake(head);
-  erase_tail(head, ate);
 }
