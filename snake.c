@@ -58,10 +58,11 @@ void handle_inputs(char input, enum Direction *old_dir) {
   }
 }
 
-bool move(struct Segment *head, enum Direction direction, struct Food *food) {
+bool move(struct Segment **head, enum Direction direction, struct Food *food) {
+  struct Segment *head_ref = *head;
   struct Segment *new_head = malloc(sizeof(struct Segment));
-  new_head = head;
-  new_head->next = head;
+  new_head->x = head_ref->x;
+  new_head->y = head_ref->y;
 
   switch (direction) {
   case LEFT:
@@ -70,10 +71,10 @@ bool move(struct Segment *head, enum Direction direction, struct Food *food) {
   case RIGHT:
     new_head->x++;
     break;
-  case DOWN:
+  case UP:
     new_head->y--;
     break;
-  case UP:
+  case DOWN:
     new_head->y++;
     break;
   }
@@ -83,27 +84,33 @@ bool move(struct Segment *head, enum Direction direction, struct Food *food) {
     return DEAD;
   }
 
-  struct Segment *current = head;
-  struct Segment *penult_seg = head;
+  struct Segment *current = head_ref;
   while (current != NULL) {
     if (new_head->x == current->x && new_head->y == current->y) {
+      free(new_head);
       return DEAD;
-    }
-
-    if (current->next->next == NULL) {
-      penult_seg = current;
     }
 
     current = current->next;
   }
 
-  if (!(new_head->x == food->x && new_head->y == food->y)) {
-    goto_xy(penult_seg->next->x, penult_seg->next->y);
-    printf(" ");
-    free(penult_seg->next);
-    penult_seg->next = NULL;
-  } else {
+  new_head->next = head_ref;
+  *head = new_head;
+
+  if (new_head->x == food->x && new_head->y == food->y) {
     spawn_food(new_head, food);
+  } else {
+    struct Segment *penult = new_head;
+
+    while (penult->next != NULL && penult->next->next != NULL) {
+      penult = penult->next;
+    }
+
+    goto_xy(penult->next->x, penult->next->y);
+    printf(" ");
+
+    free(penult->next);
+    penult->next = NULL;
   }
 
   return ALIVE;

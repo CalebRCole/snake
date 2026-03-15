@@ -36,11 +36,13 @@ int main() {
       handle_inputs(getchar(), &direction);
     }
 
-    if (move(head, direction, food)) {
+    if (move(&head, direction, food)) {
       break;
     }
 
-    sleep(1);
+    draw_snake(head);
+
+    usleep(100000);
   }
 
   // Cleanup
