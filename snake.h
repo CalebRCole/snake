@@ -18,4 +18,6 @@ struct Snake {
 
 void move_snake(struct Snake *snake, int new_x, int new_y, bool ate);
 
+void handle_inputs(char input, enum Direction *old_direction);
+
 #endif
