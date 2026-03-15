@@ -14,6 +14,10 @@ int main() {
   set_terminal_mode(START);
   draw_walls();
 
+  struct timespec ts;
+  ts.tv_sec = 0;
+  ts.tv_nsec = 100000000; // 100 ms / .1 s
+
   // Two segments are created to start. Has benefit of avoiding
   // A segmentation fault in checking for head->next.
   // Body is just the second segment.
@@ -25,9 +29,11 @@ int main() {
   head->next = body;
 
   body->x = head->x;
-  body->y = head->y - 1;
+  body->y = head->y + 1;
+  body->next = NULL;
 
   struct Food *food = malloc(sizeof(struct Food));
+  spawn_food(head, food);
 
   enum Direction direction = UP;
 
@@ -41,8 +47,9 @@ int main() {
     }
 
     draw_snake(head);
+    fflush(stdout);
 
-    usleep(100000);
+    nanosleep(&ts, NULL);
   }
 
   // Cleanup

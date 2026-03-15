@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -std=c23 -g
+CFLAGS = -Wall -Wextra -std=gnu23 -g
 TARGET = Snake
 
 BUILD_DIR = build
