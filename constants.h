@@ -4,4 +4,8 @@
 #define HEIGHT 20
 #define WIDTH 40
 
+// For setting the terminal mode.
+#define START 1
+#define STOP 0
+
 #endif

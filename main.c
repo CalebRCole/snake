@@ -3,9 +3,12 @@
 
 #include "constants.h"
 #include "draw.h"
+#include "io.h"
 #include "snake.h"
 
 int main() {
+  set_terminal_mode(START);
+
   draw_walls();
 
   // Two segments are created to start. Has benefit of avoiding
@@ -28,6 +31,8 @@ int main() {
     logic();
     draw_movement(snake, ate);
   }
+
+  set_terminal_mode(STOP);
 
   return EXIT_SUCCESS;
 }
