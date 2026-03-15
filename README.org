@@ -1,3 +1,11 @@
 * About
 
 This is a simple game of Snake written in C. Intended as a learning project.
+
+** Install
+
+This game requires GCC as the C compiler and requires POSIX headings, and thus is essentially required to be run on a Unix system. To compile, simply run "make" in the repository. "Make run" is a shortcut to compile and run the file, which is generated in the /build directory. "Make clean" removes any generated builds and returns to just the source files.
+
+** Directions
+
+Use w, a, s, d to move the snake up, left, down, and right respectively. You cannot run into any walls or your own tail or else you will game over. Your head is represented by "[]" and your tail segments by "oo". The walls are the "#" symbols. The "$$" that appear around the map is food. Your task is to eat as much food as possible before running out of space. The ultimate win condition is to completely fill the map, although this is a very difficult task. Please give it your best shot!
