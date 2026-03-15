@@ -2,8 +2,15 @@
 #include <stdlib.h>
 
 #include "constants.h"
+#include "draw.h"
+#include "snake.h"
 
 int main() {
-  printf("Hello, World!\n");
+  while (!close) {
+    input();
+    logic();
+    drawing();
+  }
+
   return EXIT_SUCCESS;
 }
