@@ -1,8 +1,32 @@
 #include <stdbool.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 #include "constants.h"
+#include "draw.h"
 #include "snake.h"
+
+void spawn_food(struct Segment *head, struct Food *food) {
+  bool valid = false;
+
+  while (!valid) {
+    food->x = (rand() % (WIDTH - 2)) + 1;
+    food->y = (rand() % (HEIGHT - 2)) + 1;
+
+    valid = true;
+    struct Segment *current = head;
+    while (current != NULL) {
+      if (current->x == food->x && current->y == food->y) {
+        valid = false; // Collision! Need to try again.
+        break;
+      }
+      current = current->next;
+    }
+  }
+
+  goto_xy(food->x, food->y);
+  printf("$");
+}
 
 void handle_inputs(char input, enum Direction *old_dir) {
   enum Direction new_dir;
@@ -34,7 +58,7 @@ void handle_inputs(char input, enum Direction *old_dir) {
   }
 }
 
-bool move(struct Segment *head, enum Direction direction, bool ate) {
+bool move(struct Segment *head, enum Direction direction, struct Food *food) {
   struct Segment *new_head = malloc(sizeof(struct Segment));
   new_head = head;
   new_head->next = head;
@@ -73,9 +97,11 @@ bool move(struct Segment *head, enum Direction direction, bool ate) {
     current = current->next;
   }
 
-  if (!ate) {
+  if (!(new_head->x == food->x && new_head->y == food->y)) {
     free(penult_seg->next);
     penult_seg->next = NULL;
+  } else {
+    spawn_food(new_head, food);
   }
 
   return ALIVE;

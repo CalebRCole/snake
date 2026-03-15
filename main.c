@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 #include "constants.h"
 #include "draw.h"
@@ -7,6 +8,8 @@
 #include "snake.h"
 
 int main() {
+  srand(time(NULL));
+
   set_terminal_mode(START);
 
   draw_walls();
