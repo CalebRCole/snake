@@ -6,5 +6,6 @@
 
 *.out
 *.a
+*.o
 /build
 /TODO.org
