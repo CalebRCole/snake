@@ -24,8 +24,8 @@ void spawn_food(struct Segment *head, struct Food *food) {
     }
   }
 
-  goto_xy(food->x, food->y);
-  printf("$");
+  goto_xy(food->x * 2, food->y);
+  printf("$$");
 }
 
 void handle_inputs(char input, enum Direction *old_dir) {
@@ -106,8 +106,8 @@ bool move(struct Segment **head, enum Direction direction, struct Food *food) {
       penult = penult->next;
     }
 
-    goto_xy(penult->next->x, penult->next->y);
-    printf(" ");
+    goto_xy(penult->next->x * 2, penult->next->y);
+    printf("  ");
 
     free(penult->next);
     penult->next = NULL;

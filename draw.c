@@ -16,9 +16,9 @@ void draw_walls() {
     for (int x = 0; x < WIDTH; x++) {
       if (x == 0 || x == WIDTH - 1 || y == 0 || y == HEIGHT - 1) {
         // Prints walls.
-        printf("#");
+        printf("##");
       } else {
-        printf(" ");
+        printf("  ");
       }
     }
     printf("\n");
@@ -27,10 +27,10 @@ void draw_walls() {
 
 void draw_snake(struct Segment *head) {
   // Prints head.
-  goto_xy(head->x, head->y);
-  printf("@");
+  goto_xy(head->x * 2, head->y);
+  printf("[]");
 
   // Changes old head to body segment.
-  goto_xy(head->next->x, head->next->y);
-  printf("o");
+  goto_xy(head->next->x * 2, head->next->y);
+  printf("oo");
 }

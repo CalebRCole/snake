@@ -1,8 +1,8 @@
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
 
-#define HEIGHT 20
-#define WIDTH 40
+#define HEIGHT 30
+#define WIDTH 30
 
 // For setting the terminal mode.
 #define START 1
