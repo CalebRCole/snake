@@ -1,0 +1,2 @@
+* About
+Within this subdirectory is a version of snake written in Haskell.
