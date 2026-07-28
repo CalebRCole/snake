@@ -1,5 +1,7 @@
 ## === Editor Files ===
 .dir-locals.el
+*#
+*~
 
 
 ## === Build Artifacts ===
@@ -9,3 +11,5 @@
 *.o
 /build
 /TODO.org
+/zig/zig-out/*
+/zig/.zig-cache/*

@@ -1,0 +1,11 @@
+* About
+Simple Snake clone made in Zig
+
+** Requirements
+Only tested on x86_64-linux 7.0+
+
+Zig v0.16.0
+ncurses
+
+** How to Install
+Simply run 'zig build run' to build the project and run it. Otherwise the binary should build in "zig-out/bin/snake".
