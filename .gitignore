@@ -11,5 +11,6 @@
 *.o
 /build
 /TODO.org
-/zig/zig-out/*
-/zig/.zig-cache/*
+/zig*/zig-out/*
+/zig*/zig-pkg/*
+/zig*/.zig-cache/*
